@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './Header';
 import Main from './Main';
-import './index.css';
 
 export default async function getUsers() {
   let response = await fetch(

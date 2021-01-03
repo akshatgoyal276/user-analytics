@@ -30,7 +30,7 @@ export default function Main(props) {
   const toggleRejected=(id)=>{
     let temp = users;
     temp.map((user) => {
-      if (user.id === id) {
+      if (user.id.toString() === id.toString()) {
         if (user.rejected === true) {
           user.rejected = false;
         } else {
