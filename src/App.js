@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import React from 'react';
+import UserList from './UserList';
 import './App.css';
 
-function App() {
+function App(props) {
+  const {data}=props;
+  const [userDisplay, setUserDisplay] = React.useState(data);
+
+  function applyFilter(byName) {
+    let temp = data.filter((user) => {
+      if (user.name.toLowerCase().includes(byName.toLowerCase())) {
+        return true;
+      }
+      return false;
+    });
+    setUserDisplay(temp);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="center">
+        <input
+          id="searchByName"
+          onChange={(event) => {
+            applyFilter(event.target.value);
+          }}
+          placeholder="Enter Name"
+        ></input>
+      </div>
+      <UserList
+        users={userDisplay}
+      />
     </div>
   );
 }
