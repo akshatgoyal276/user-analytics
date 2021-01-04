@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from './Header';
 import Main from './Main';
 
-export default async function getUsers() {
+async function getUsers() {
   let response = await fetch(
     "https://s3-ap-southeast-1.amazonaws.com/he-public-data/users49b8675.json"
   );

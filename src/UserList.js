@@ -8,8 +8,9 @@ export default function UserList(props) {
     <div id="list">
       {users.map((user) => {
         return (
-          <Link className="link" to={"/"+user.id} key={user.id}><div id={user.id} className="userCard">
-            <img src={user.Image} width="200px" alt="userImage" />
+          <div className="list-user" key={user.id}>
+          <Link className="link" to={"/"+user.id} ><div id={user.id} className="userCard">
+            <img src={user.Image} alt="userImage" className="img" />
             <div className="userDetails">
               <p>
                 <b>Name : </b>
@@ -18,6 +19,7 @@ export default function UserList(props) {
             </div>
           </div>
           </Link>
+          </div>
         );
       })}
     </div>
